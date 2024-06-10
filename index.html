@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HighChart DEMO</title>
+
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/modules/sankey.js"></script>
+
+</head>
+<body>
+<h2>Mapping Educational Milestones</h2>
+<span>Dateset information</span>
+<span>Time Period: 2013-2023</span>
+<p>California public school students take a variety of paths to earning postsecondary degrees. Use the interactive
+diagram below to see what percentage of 9th-graders from 2013 achieved these milestones by the end of 2023.</p>
+<p>The diagram shows key milestones achieved over a 10-year period, from 2013 to 2023. Among California public school
+9th-graders in 2013, how many completed their high school degree during these 10 years? If they went to college, what was the frist
+type of college they enrolled in? What was the highest degree they earned by 2023?</p>
+<span>Note: Not all students follow a traditional timeline. This diagram shows milestones at any time in the ten-year
+period this data was recorded.</span>
+
+
+
+<!-- Container to render HighCharts -->
+<div id="map"></div>
+<figure class="highcharts-figure">
+    <div id="sankey-chart" style="height: 400px;"></div>
+    <p class="highcharts-description">
+        Sankey charts are used to visualize data flow and volume
+        between nodes. The wider lines indicate larger volumes.
+    </p>
+</figure>
+
+<script src="assets/js/highcharts-categorized-areas.js"></script>
+<p>Students earn postsecondary degress at different rates. Use the interactive diagrams below to explore how California
+public school students with different demographic characteristics-gender and race/ethnicity-earned degrees at different
+rate by 2023, ten years after starting 9th grade. This diagram shows all of the California public school students who started
+9th grade in 2023 and enrolled in college at some point in the following 10 years. It does not include any students who
+did not enroll in college</p>
+
+<script src="assets/js/highcharts-sankey-diagram.js"></script>
+</body>
+</html>
