@@ -92,7 +92,7 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     type: "sankey",
     nodes: nodes, // This needs to be altered for each series, I think.
     allowOverlap: true,
-    colorByPoint: false,
+    colorByPoint: true,
     showInLegend: true,
     alignThresholds: true,
     displayErrors: false,
@@ -121,7 +121,7 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       nodePadding: 75, // I think this is the vertical padding between nodes.
       nodeDistance: 100, // I think this is minimum L/R distance between nodes.
       centerInCategory: false,
-      enableMouseTracking: true,
+      enableMouseTracking: false,
       visible: false,
       linkOpacity: 0.1,
       dataLabels: {
@@ -131,12 +131,15 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
         enabled: true,
         useHTML: true,
       },
+      animation: false,
     },
   },
 
+  // ***** NOTE: name and id of each series below should match the name and id of the appropriate map series.
   series: [
     {
       name: 'All Regions',
+      id: 'all',
       keys: ['from', 'to', 'weight', 'color'],
       index: 1,
       stack: 1,
@@ -144,11 +147,12 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       visible: true, // always to true. the enableMouseTracking will determine if its "active".
       enableMouseTracking: false, // defaults to true. if no active group, set to true.
       dataLabels: {
-        enabled: true,
+        enabled: false,
       },
+      animation: false,
       data: [
-        ['ninth_grade', 'Completed High School', 84.14, 'lightgray'],
-        ['ninth_grade', 'Did Not Complete High School', 15.86, 'lightgray'],
+        ['Ninth Grade', 'Completed High School', 84.14, 'lightgray'],
+        ['Ninth Grade', 'Did Not Complete High School', 15.86, 'lightgray'],
         ['Completed High School', 'Four-year school', 36.00, 'lightgray'],
         ['Completed High School', 'Two-year school', 28.00, 'lightgray'],
         ['Completed High School', 'Never enrolled', 20.14, 'lightgray'],
@@ -168,15 +172,17 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     },
     {
       name: 'Group 1',
+      id: 'one',
       keys: ['from', 'to', 'weight'],
       index: 99,
       stack: 2,
       linkOpacity: 0.5, // defaults to 0.1. the active group needs to be set to 0.5
-      visible: true, // defaults to false. the active group needs to be set to true
+      visible: false, // defaults to false. the active group needs to be set to true
       enableMouseTracking: true, // defaults to false. the active group needs to be set to true
+      animation: false,
       data: [
-        ['ninth_grade', 'Completed High School', 54.14],
-        ['ninth_grade', 'Did Not Complete High School', 10.86],
+        ['Ninth Grade', 'Completed High School', 54.14],
+        ['Ninth Grade', 'Did Not Complete High School', 10.86],
         ['Completed High School', 'Four-year school', 26.00],
         ['Completed High School', 'Two-year school', 18.00],
         ['Completed High School', 'Never enrolled', 10.14],
@@ -196,6 +202,7 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     },
     {
       name: 'Group 2',
+      id: 'two',
       keys: ['from', 'to', 'weight'],
       index: 99,
       stack: 3,
@@ -221,6 +228,7 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     },
     {
       name: 'Group 3',
+      id: 'three',
       keys: ['from', 'to', 'weight'],
       index: 99,
       stack: 4,
