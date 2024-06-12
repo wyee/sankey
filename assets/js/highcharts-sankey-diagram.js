@@ -1,82 +1,96 @@
-const nodes = [
+let dataLabelDefaults = {
+  useHTML: true,
+  backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  borderRadius: 5,
+  borderWidth: 1,
+};
+
+let nodes = [
     {
-        id: 'Ninth Grade',
+        id: 'ninth_grade',
+        name: 'Ninth Grade',
         column: 1,
-        offset: -100,
-        color: '#ffa500',
-        marginTop: 0,
-        offsetVertical: -100,
     },
     {
-        id: 'Completed High School',
+        id: 'completed_high_school',
+        name: 'Completed High School',
         column: 2,
-        color: '#74ffe7',
     },
     {
-        id: 'Did Not Complete High School',
+        id: 'did_not_complete_high_school',
+        name: 'Did Not Complete High School',
         column: 2,
-        color: '#8cff74',
       },
     {
-        id: 'Four-year college',
+        id: 'four_year_college',
+        name: 'Four-year college',
         column: 3,
-        color: '#ff8da1',
       },
     {
-        id: 'Two-year community college',
+        id: 'two_year_community_college',
+        name: 'Two-year community college',
         column: 3,
-        color: '#f4c0ff',
       },
     {
-        id: 'Never enrolled in college',
+        id: 'never_enrolled_in_college',
+        name: 'Never enrolled in college',
         column: 3,
-        color: '#e6e6e6',
       },
     {
-        id: 'Bachelor\'s degree',
+        id: 'bachelors_degree',
+        name: 'Bachelor\'s degree',
         column: 4,
-        color: '#F9E79F',
       },
     {
-        id: 'Associate degree',
+        id: 'associate_degree',
+        name: 'Associate degree',
         column: 4,
-        color: '#009c00'
       },
     {
-        id: 'Community college certificate',
+        id: 'community_college_certificate',
+        name: 'Community college certificate',
         column: 4,
-        color: '#1a8dff'
       },
     {
-        id: 'Attended, did not yet earn degree',
+        id: 'attended_did_not_yet_earn_degree',
+        name: 'Attended, did not yet earn degree',
         column: 4,
-        color: '#009c00'
       }
 ];
 
+// Assign colorIndex and default dataLabel information to each node item.
+nodes.forEach((node, idx) => {
+  node.colorIndex = idx;
+  node.dataLabels = dataLabelDefaults;
+});
 
 let sankeyChart = Highcharts.chart('sankey-chart', {
 
+  // Title for the chart. Can "allowHTML" for more customization.
   title: {
     text: ''
   },
 
+  // Subtitle for the chart. Can "allowHTML" for more customization.
   subtitle: {
     text: '',
   },
 
+  // Caption text that displays at the footer. Can "allowHTML" for more customization.
   caption: {
     text: 'Dateset information Time Period: 2013-2023',
     allowHTML: true,
   },
 
+  // HighCharts credits display. It is on by default on a lot of charts.
   credits: {
     enabled: false,
   },
 
+  // Here is where we define the type of chart and some basic settings.
   chart: {
     type: "sankey",
-    nodes: nodes,
+    nodes: nodes, // This needs to be altered for each series, I think.
     allowOverlap: true,
     colorByPoint: false,
     showInLegend: true,
@@ -84,13 +98,10 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     displayErrors: false,
     ignoreHiddenSeries: false,
     backgroundColor: 'none',
+    colorCount: nodes.length,
   },
 
-  yAxis: {
-    floor: 0,
-    ceiling: 100,
-  },
-
+  // Exporting availability options.
   exporting: {
     chartOptions: {
       plotOptions: {
@@ -103,12 +114,13 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
     }
   },
 
+  // General Series settings to apply for all series in the set. Items can be overridden in the series object.
   plotOptions: {
     sankey: {
-      nodeAlignment: 'top',
-      nodePadding: 60,
-      nodeDistance: 60,
-      centerInCategory: true,
+      nodeAlignment: 'center', // 'top, 'center', 'bottom' are options. defaults to center.
+      nodePadding: 75, // I think this is the vertical padding between nodes.
+      nodeDistance: 100, // I think this is minimum L/R distance between nodes.
+      centerInCategory: false,
       enableMouseTracking: true,
       visible: false,
       linkOpacity: 0.1,
@@ -135,8 +147,8 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
         enabled: true,
       },
       data: [
-        ['Ninth Grade', 'Completed High School', 84.14, 'lightgray'],
-        ['Ninth Grade', 'Did Not Complete High School', 15.86, 'lightgray'],
+        ['ninth_grade', 'Completed High School', 84.14, 'lightgray'],
+        ['ninth_grade', 'Did Not Complete High School', 15.86, 'lightgray'],
         ['Completed High School', 'Four-year school', 36.00, 'lightgray'],
         ['Completed High School', 'Two-year school', 28.00, 'lightgray'],
         ['Completed High School', 'Never enrolled', 20.14, 'lightgray'],
@@ -163,8 +175,8 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       visible: true, // defaults to false. the active group needs to be set to true
       enableMouseTracking: true, // defaults to false. the active group needs to be set to true
       data: [
-        ['Ninth Grade', 'Completed High School', 54.14],
-        ['Ninth Grade', 'Did Not Complete High School', 45.86],
+        ['ninth_grade', 'Completed High School', 54.14],
+        ['ninth_grade', 'Did Not Complete High School', 10.86],
         ['Completed High School', 'Four-year school', 26.00],
         ['Completed High School', 'Two-year school', 18.00],
         ['Completed High School', 'Never enrolled', 10.14],
