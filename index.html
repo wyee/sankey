@@ -1,45 +1,62 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>HighChart DEMO</title>
-
     <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <script src="https://code.highcharts.com/modules/sankey.js"></script>
+  </head>
+  <body>
 
-</head>
-<body>
-<h2>Mapping Educational Milestones</h2>
-<span>Dateset information</span>
-<span>Time Period: 2013-2023</span>
-<p>California public school students take a variety of paths to earning postsecondary degrees. Use the interactive
-diagram below to see what percentage of 9th-graders from 2013 achieved these milestones by the end of 2023.</p>
-<p>The diagram shows key milestones achieved over a 10-year period, from 2013 to 2023. Among California public school
-9th-graders in 2013, how many completed their high school degree during these 10 years? If they went to college, what was the frist
-type of college they enrolled in? What was the highest degree they earned by 2023?</p>
-<span>Note: Not all students follow a traditional timeline. This diagram shows milestones at any time in the ten-year
-period this data was recorded.</span>
+    <div class="container stack">
+      <h1>Mapping Educational Milestones</h1>
 
+      <span class="label">Dataset Information</span>
+      <div class="tags">
+        <span class="tag tag__default">Time Period: <span class="tag__data">2013-2023</span></span>
+      </div>
 
+      <h2>California public school students take a variety of paths to earning postsecondary degrees. Use the interactive diagram below to see what percentage of 9th-graders from 2013 achieved these milestones by the end of 2023.</h2>
+      
+      <p>The diagram shows key milestones achieved over a 10-year period, from 2013 to 2023. Among California public school 9th-graders in 2013, how many completed their high school degree during these 10 years? If they went to college, what was the first type of college they enrolled in? What was the highest degree they earned by 2023?</p>
+      
+      <span class="note">Note: Not all students follow a traditional timeline. This diagram shows milestones at any time in the ten-year period this data was recorded.</span>
+    </div>
+    
+    <div class="container full-width bg-callout stack">
+      <h2 class="text-center">Ninth Grade to Postsecondary Award: California Statewide</h2>
 
-<!-- Container to render HighCharts -->
-<div id="map"></div>
-<figure class="highcharts-figure">
-    <div id="sankey-chart" style="height: 400px;"></div>
-    <p class="highcharts-description">
-        Sankey charts are used to visualize data flow and volume
-        between nodes. The wider lines indicate larger volumes.
-    </p>
-</figure>
+      <div class="tags">
+        <span class="tag tag__alert">Simulated data</span>
+      </div>
 
-<script src="assets/js/highcharts-categorized-areas.js"></script>
-<p>Students earn postsecondary degress at different rates. Use the interactive diagrams below to explore how California
-public school students with different demographic characteristics-gender and race/ethnicity-earned degrees at different
-rate by 2023, ten years after starting 9th grade. This diagram shows all of the California public school students who started
-9th grade in 2023 and enrolled in college at some point in the following 10 years. It does not include any students who
-did not enroll in college</p>
+      <div class="chart-container">
+        <!-- Container to render Map -->
+        <figure class="highcharts-figure stack">
+          <p class="figure__note">Select a region from the map to view more details.</p>
+          <div id="map"></div>
+        </figure>
+        <!-- Container to render Sankey Chart -->
+        <figure class="highcharts-figure">
+          <div id="sankey-chart" style="height: 400px;"></div>
+        </figure>
+      </div>
+    </div>
 
-<script src="assets/js/highcharts-sankey-diagram.js"></script>
-</body>
+    <div class="container">
+      <p>Students earn postsecondary degress at different rates. Use the interactive diagrams below to explore how California public school students with different demographic characteristics-gender and race/ethnicity-earned degrees at different rate by 2023, ten years after starting 9th grade. This diagram shows all of the California public school students who started 9th grade in 2023 and enrolled in college at some point in the following 10 years. It does not include any students who did not enroll in college</p>
+    </div>
+
+    <div class="container full-width bg-callout">
+      <figure>
+        <p class="note">Placeholder for another chart.</p>
+      </figure>
+    </div>
+    
+    <script src="assets/js/highcharts-categorized-areas.js"></script>
+    <script src="assets/js/highcharts-sankey-diagram.js"></script>
+  </body>
 </html>
