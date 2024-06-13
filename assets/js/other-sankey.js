@@ -105,7 +105,7 @@
           borderWidth: 1,
           borderRadius: 3,
           padding: 4,
-          zIndex: 3,
+          zIndex: 1,
           shadow: {
             offsetX: 0,
             offsetY: 0,
@@ -172,7 +172,7 @@
         visible: true,
         enableMouseTracking: true,
         dataLabels: {
-          zIndex: 6,
+          zIndex: 10,
         },
         //data: seriesDataFull,
         data: seriesDataCompact,
