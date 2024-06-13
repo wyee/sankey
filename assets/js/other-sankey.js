@@ -143,16 +143,19 @@
         }, {
           level: 1,
           dataLabels: {
+            nodeFormat: '<b style="font-size: 12px">{point.name}</b> <br/>{point.sum}%',
             align: 'center',
           }
         }, {
           level: 2,
           dataLabels: {
+            nodeFormat: '<b style="font-size: 12px">{point.name}</b> <br/>{point.sum}%',
             align: 'center',
           }
         }, {
           level: 3,
           dataLabels: {
+            nodeFormat: '<b style="font-size: 12px">{point.name}</b> <br/>{point.sum}%',
             align: 'left',
             x: 20,
             style: {
