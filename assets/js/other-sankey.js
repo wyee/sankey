@@ -11,19 +11,19 @@
   let nodeData = await dataNodes.nodes;
   
   // Assign default dataLabel information to each node item.
-  let dataLabelDefaults = {
-    useHTML: true,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    borderRadius: 5,
-    borderWidth: 1,
-  };
+  // let dataLabelDefaults = {
+  //   useHTML: true,
+  //   backgroundColor: 'rgba(255, 255, 255, 1)',
+  //   borderRadius: 5,
+  //   borderWidth: 1,
+  // };
 
-  nodeData.forEach((node, idx) => {
-    node.dataLabels = dataLabelDefaults;
-  });
+  // nodeData.forEach((node, idx) => {
+  //   node.dataLabels = dataLabelDefaults;
+  // });
   
   let seriesDataCompact = [
-    ['Ninth Grade', 'Completed High School', 84.14, '#A5B5D4', 'test'],
+    ['Ninth Grade', 'Completed High School', 84.14, '#A5B5D4'],
     ['Ninth Grade', 'Did Not Complete High School', 15.86, '#A5B5D4'],
     ['Completed High School', 'Four-year school', 36.00, '#A5B5D4'],
     ['Completed High School', 'Two-year school', 28.00, '#A5B5D4'],
@@ -77,6 +77,8 @@
       backgroundColor: 'none',
       styledMode: false,
       animation: false,
+      spacingRight: 200,
+      spacingLeft: 100,
     },
 
     // General Series settings to apply for all series in the set. 
@@ -97,65 +99,68 @@
         dataLabels: {
           enabled: true,
           useHTML: true,
+          nodeFormat: '<b style="font-size: 12px">{point.name}</b> <br/>{point.sum}',
           backgroundColor: '#fff',
           borderColor: '#666',
           borderWidth: 1,
           borderRadius: 3,
+          padding: 4,
+          zIndex: 3,
           shadow: {
             offsetX: 0,
             offsetY: 0,
             width: 1,
+            lineHeight: 1,
           },
           style: {
             fontWeight: 'normal',
-            fontSize: '10px',
-          }
+            fontSize: '12px',
+            textAlign: 'left',
+          },
           // color: 'rgba(0, 0, 0, 0.7)',
           // verticalAlign: 'middle',
-          // enabled: true,
           // padding: 7,
-          // alignTo: 'plotEdges',
-          // overflow: 'allow',
-          // crop: false,
+          alignTo: 'plotEdges',
+          overflow: 'allow',
+          crop: false,
+          //width: 150,
           // align: 'center',
         },
-        // nodes: {
-        //   dataLabels: {
-        //     enabled: true,
-        //     style: {
-        //       fontWeight: 'normal',
-        //       backgroundColor: 'rgba(255, 255, 255, 1)',
-        //       borderColor: '#666',
-        //       borderWidth: '4px',
-        //     },
-        //     color: 'rgba(0, 0, 0, 0.7)',
-        //     verticalAlign: 'middle',
-        //     useHTML: false,
-        //     enabled: true,
-        //     padding: 7,
-        //     alignTo: 'plotEdges',
-        //     // overflow: 'allow',
-        //     // crop: false,
-        //     // align: 'center',
-        //   },
-        // },
         // label: {
         //   enabled: true,
         //   useHTML: true,
         // },
-        // levels: {
-        //   color: '#4366A8',
-        //   dataLabels: {
-        //     enabled: true,
-        //     backgroundColor: 'rgba(255, 255, 255, 1)',
-        //     borderColor: 'rgba(0, 0, 0, 0.7)',
-        //     borderWidth: 1,
-        //     color: 'rgba(0, 0, 0, 0.7)',
-        //     overflow: 'none',
-        //     allowHTML: true,
-        //     // verticalAlign: 'middle',
-        //   },
-        // }
+        levels: [{
+          level: 0,
+          dataLabels: {
+            align: 'right',
+            x: -20,
+            style: {
+              minWidth: '125px',
+              width: '125px',
+            },
+          }
+        }, {
+          level: 1,
+          dataLabels: {
+            align: 'center',
+          }
+        }, {
+          level: 2,
+          dataLabels: {
+            align: 'center',
+          }
+        }, {
+          level: 3,
+          dataLabels: {
+            align: 'left',
+            x: 20,
+            style: {
+              minWidth: '125px',
+              width: '125px',
+            },
+          }
+        }],
       },
     },
 
@@ -163,13 +168,14 @@
       {
         name: 'All Regions',
         id: 'all',
-        keys: ['from', 'to', 'weight', 'color', 'custom.value'],
+        keys: ['from', 'to', 'weight', 'color'],
         visible: true,
         enableMouseTracking: true,
-        data: seriesDataFull,
-        // dataLabels: {
-        //   nodeFormat: '<span>{point.name}</span>',
-        // }
+        dataLabels: {
+          zIndex: 6,
+        },
+        //data: seriesDataFull,
+        data: seriesDataCompact,
       },
     ],
   });
