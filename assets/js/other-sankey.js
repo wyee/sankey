@@ -1,14 +1,14 @@
 (async () => {
 
   // // Pull our series data from a seperate json source.
-  let responseSeries = await fetch('../assets/data/sankey-series-full.json');
-  let dataSeries = await responseSeries.json();
-  let seriesDataFull = await dataSeries.data;
+  // let responseSeries = await fetch('../assets/data/sankey-series-full.json');
+  // let dataSeries = await responseSeries.json();
+  // let seriesDataFull = await dataSeries.data;
   
   // Pull our nodes/column data from a seperate json source.
-  let responseNodes = await fetch('../assets/data/sankey-nodes.json');
-  let dataNodes = await responseNodes.json();
-  let nodeData = await dataNodes.nodes;
+  // let responseNodes = await fetch('../assets/data/sankey-nodes.json');
+  // let dataNodes = await responseNodes.json();
+  // let nodeData = await dataNodes.nodes;
   
   // Assign default dataLabel information to each node item.
   // let dataLabelDefaults = {
