@@ -42,6 +42,96 @@
     ['Never enrolled', 'Never enrolled in college', 28.14, '#A5B5D4'],
   ]
 
+  let tempNodeData = [
+    {
+      id: "ninth_grade",
+      name: "Ninth Grade",
+      color: "#4366A8",
+      level: 0,
+      column: "1"
+    },
+    {
+      id: "completed_high_school",
+      name: "Completed High School",
+      color: "#4366A8",
+      level: 1,
+      column: "2"
+    },
+    {
+      id: "did_not_complete_high_school",
+      name: "Did Not Complete High School",
+      color: "#4366A8",
+      column: "3",
+      level: 4,
+      dataLabels: {
+        align: "center",
+        y: 100
+      }
+    },
+    {
+      id: "four_year_college",
+      name: "Four-year college",
+      color: "#4366A8",
+      level: 2,
+      column: "4"
+    },
+    {
+      id: "two_year_school",
+      name: "Two-year community college",
+      color: "#4366A8",
+      level: 2,
+      column: "4"
+    },
+    {
+      id: "never_enrolled_in_college",
+      name: "Never enrolled in college",
+      color: "#4366A8",
+      level: 2,
+      column: "4"
+    },
+    {
+      id: "bachelors_degree",
+      name: "Bachelor's degree",
+      color: "#4366A8",
+      column: "5",
+      level: 3,
+      dataLabels: {
+        align: "left"
+      }
+    },
+    {
+      id: "associate_degree",
+      name: "Associate degree",
+      color: "#4366A8",
+      column: "5",
+      level: 3,
+      dataLabels: {
+        align: "left"
+      }
+    },
+    {
+      id: "community_college_certificate",
+      name: "Community college certificate",
+      color: "#4366A8",
+      column: "5",
+      level: 3,
+      dataLabels: {
+        align: "left"
+      }
+    },
+    {
+      id: "attended_did_not_yet_earn_degree",
+      name: "Attended, did not yet earn degree",
+      color: "#4366A8",
+      column: "5",
+      level: 3,
+      dataLabels: {
+        align: "left"
+      }
+    }
+  ];
+
+
   let sankeyChart = Highcharts.chart('other-sankey-chart', {
 
     // Title for the chart. Can "allowHTML" for more customization.
@@ -68,7 +158,7 @@
     // Here is where we define the type of chart and some basic settings.
     chart: {
       type: "sankey",
-      nodes: nodeData,
+      nodes: tempNodeData,
       allowOverlap: true,
       showInLegend: true,
       alignThresholds: true,
