@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>HighChart DEMO</title>
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    <script src="https://code.highcharts.com/modules/sankey.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js" type="text/javascript"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" type="text/javascript"></script>
+    <script src="https://code.highcharts.com/modules/sankey.js" type="text/javascript"></script>
   </head>
   <body>
 
@@ -41,7 +41,7 @@
         </figure>
         <!-- Container to render Sankey Chart -->
         <figure class="highcharts-figure">
-          <div id="sankey-chart" style="height: 400px;"></div>
+          <div id="sankey-chart"></div>
         </figure>
       </div>
     </div>
@@ -51,12 +51,14 @@
     </div>
 
     <div class="container full-width bg-callout">
-      <figure>
-        <p class="note">Placeholder for another chart.</p>
+      <!-- Container to render Sankey Chart -->
+      <figure class="highcharts-figure">
+        <div id="other-sankey-chart"></div>
       </figure>
     </div>
     
-    <script src="assets/js/highcharts-categorized-areas.js"></script>
-    <script src="assets/js/highcharts-sankey-diagram.js"></script>
+    <script src="assets/js/highcharts-categorized-areas.js" type="text/javascript"></script>
+    <script src="assets/js/highcharts-sankey-diagram.js" type="text/javascript"></script>
+    <script src="assets/js/other-sankey.js" type="text/javascript"></script>
   </body>
 </html>

@@ -1,0 +1,157 @@
+{
+  "data": [
+    {
+      "id": "ninth_grade_to_completed_high_school",
+      "name": "Ninth Grade to Completed High School",
+      "description": "These are students from ninth Grade to Completed High School",
+      "from": "ninth_grade",
+      "to": "completed_high_school",
+      "weight": 84.14,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "ninth_grade_to_did_not_completed_high_school",
+      "name": "Ninth Grade to Did Not Completed High School",
+      "description": "These are students that did not complete high school",
+      "from": "ninth_grade",
+      "to": "did_not_completed_high_school",
+      "weight": 15.86,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "completed_high_school_to_four_year_school",
+      "name": "Completed High School to Four-year school",
+      "description": "These are students completed high school and went to a four-year school.",
+      "from": "completed_high_school",
+      "to": "four_year_school",
+      "weight": 36.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "completed_high_school_to_two_year_school",
+      "name": "Completed High School to Two-year school",
+      "description": "These are students completed high school and went to a two-year school.",
+      "from": "completed_high_school",
+      "to": "two_year_school",
+      "weight": 20.14,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "completed_high_school_to_never_enrolled",
+      "name": "Completed High School to Never enrolled",
+      "description": "These are students completed high school and went to a two-year school.",
+      "from": "completed_high_school",
+      "to": "never_enrolled",
+      "weight": 14.38,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "did_not_completed_high_school_to_four_year_school",
+      "name": "Did Not Completed High School to Four-year school",
+      "description": "These are students that did not complete high school and went to a four-year school.",
+      "from": "did_not_completed_high_school",
+      "to": "four_year_school",
+      "weight": 2.86,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "did_not_completed_high_school_to_two_year_school",
+      "name": "Did Not Completed High School to Two-year school",
+      "description": "These are students that did not complete high school and went to a two-year school.",
+      "from": "did_not_completed_high_school",
+      "to": "two_year_school",
+      "weight": 5.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "did_not_completed_high_school_to_never_enrolled",
+      "name": "Did Not Completed High School to Never enrolled",
+      "description": "These are students that did not complete high school and never enrolled in college.",
+      "from": "did_not_completed_high_school",
+      "to": "never_enrolled",
+      "weight": 8.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "four_year_school_to_bachelors_degree",
+      "name": "Four-year school to Bachelor\"s degree",
+      "description": "These are students that went to a four-year school and earned a Bachelor\"s degree.",
+      "from": "four_year_school",
+      "to": "bachelors_degree",
+      "weight": 18.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "four_year_school_to_associate_degree",
+      "name": "Four-year school to Associate degree",
+      "description": "These are students that went to a four-year school and earned an Associate degree.",
+      "from": "four_year_school",
+      "to": "associate_degree",
+      "weight": 10.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "four_year_school_to_community_college_certificate",
+      "name": "Four-year school to Community college certificate",
+      "description": "These are students that went to a four-year school and earned a Community college certificate.",
+      "from": "four_year_school",
+      "to": "community_college_certificate",
+      "weight": 6.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "four_year_school_to_never_enrolled_in_college",
+      "name": "Four-year school to Never enrolled in college",
+      "description": "These are students that went to a four-year school and never enrolled in college.",
+      "from": "four_year_school",
+      "to": "never_enrolled_in_college",
+      "weight": 4.86,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "two_year_school_to_bachelors_degree",
+      "name": "Two-year school to Bachelor\"s degree",
+      "description": "These are students that went to a two-year school and earned a Bachelor\"s degree.",
+      "from": "two_year_school",
+      "to": "bachelors_degree",
+      "weight": 8.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "two_year_school_to_associate_degree",
+      "name": "Two-year school to Associate degree",
+      "description": "These are students that went to a two-year school and earned an Associate degree.",
+      "from": "two_year_school",
+      "to": "associate_degree",
+      "weight": 5.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "two_year_school_to_community_college_certificate",
+      "name": "Two-year school to Community college certificate",
+      "description": "These are students that went to a two-year school and earned a Community college certificate.",
+      "from": "two_year_school",
+      "to": "community_college_certificate",
+      "weight": 9.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "two_year_school_to_never_enrolled_in_college",
+      "name": "Two-year school to Never enrolled in college",
+      "description": "These are students that went to a two-year school and never enrolled in college.",
+      "from": "two_year_school",
+      "to": "never_enrolled_in_college",
+      "weight": 6.0,
+      "color": "#A5B5D4"
+    },
+    {
+      "id": "never_enrolled_to_never_enrolled_in_college",
+      "name": "Never enrolled to Never enrolled in college",
+      "description": "These are students that never enrolled.",
+      "from": "never_enrolled",
+      "to": "never_enrolled_in_college",
+      "weight": 28.14,
+      "color": "#A5B5D4"
+    }
+  ]
+}

@@ -1,3 +1,56 @@
+let nodes = [
+  {
+    id: 'ninth_grade',
+    name: 'Ninth Grade',
+    column: 1,
+  },
+  {
+    id: 'completed_high_school',
+    name: 'Completed High School',
+    column: 2,
+  },
+  {
+    id: 'did_not_complete_high_school',
+    name: 'Did Not Complete High School',
+    column: 2,
+  },
+  {
+    id: 'four_year_college',
+    name: 'Four-year college',
+    column: 3,
+  },
+  {
+    id: 'two_year_community_college',
+    name: 'Two-year community college',
+    column: 3,
+  },
+  {
+    id: 'never_enrolled_in_college',
+    name: 'Never enrolled in college',
+    column: 3,
+  },
+  {
+    id: 'bachelors_degree',
+    name: 'Bachelor\'s degree',
+    column: 4,
+  },
+  {
+    id: 'associate_degree',
+    name: 'Associate degree',
+    column: 4,
+  },
+  {
+    id: 'community_college_certificate',
+    name: 'Community college certificate',
+    column: 4,
+  },
+  {
+    id: 'attended_did_not_yet_earn_degree',
+    name: 'Attended, did not yet earn degree',
+    column: 4,
+  }
+];
+
 let dataLabelDefaults = {
   useHTML: true,
   backgroundColor: 'rgba(255, 255, 255, 0.5)',
@@ -5,64 +58,12 @@ let dataLabelDefaults = {
   borderWidth: 1,
 };
 
-let nodes = [
-    {
-        id: 'ninth_grade',
-        name: 'Ninth Grade',
-        column: 1,
-    },
-    {
-        id: 'completed_high_school',
-        name: 'Completed High School',
-        column: 2,
-    },
-    {
-        id: 'did_not_complete_high_school',
-        name: 'Did Not Complete High School',
-        column: 2,
-      },
-    {
-        id: 'four_year_college',
-        name: 'Four-year college',
-        column: 3,
-      },
-    {
-        id: 'two_year_community_college',
-        name: 'Two-year community college',
-        column: 3,
-      },
-    {
-        id: 'never_enrolled_in_college',
-        name: 'Never enrolled in college',
-        column: 3,
-      },
-    {
-        id: 'bachelors_degree',
-        name: 'Bachelor\'s degree',
-        column: 4,
-      },
-    {
-        id: 'associate_degree',
-        name: 'Associate degree',
-        column: 4,
-      },
-    {
-        id: 'community_college_certificate',
-        name: 'Community college certificate',
-        column: 4,
-      },
-    {
-        id: 'attended_did_not_yet_earn_degree',
-        name: 'Attended, did not yet earn degree',
-        column: 4,
-      }
-];
-
 // Assign colorIndex and default dataLabel information to each node item.
 nodes.forEach((node, idx) => {
   node.colorIndex = idx;
   node.dataLabels = dataLabelDefaults;
 });
+
 
 let sankeyChart = Highcharts.chart('sankey-chart', {
 
@@ -90,15 +91,16 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
   // Here is where we define the type of chart and some basic settings.
   chart: {
     type: "sankey",
-    nodes: nodes, // This needs to be altered for each series, I think.
+    nodes: nodes,
     allowOverlap: true,
     colorByPoint: true,
     showInLegend: true,
     alignThresholds: true,
     displayErrors: false,
-    ignoreHiddenSeries: false,
+    ignoreHiddenSeries: true,
     backgroundColor: 'none',
     colorCount: nodes.length,
+    animation: false,
   },
 
   // Exporting availability options.
@@ -120,18 +122,21 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       nodeAlignment: 'center', // 'top, 'center', 'bottom' are options. defaults to center.
       nodePadding: 75, // I think this is the vertical padding between nodes.
       nodeDistance: 100, // I think this is minimum L/R distance between nodes.
+      linkOpacity: 0.5,
       centerInCategory: false,
       enableMouseTracking: false,
+      animation: false,
       visible: false,
       linkOpacity: 0.1,
+      index: 99,
+      stack: 2,
       dataLabels: {
-        enabled: false,
+        enabled: true,
       },
       label: {
         enabled: true,
         useHTML: true,
       },
-      animation: false,
     },
   },
 
@@ -143,13 +148,12 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       keys: ['from', 'to', 'weight', 'color'],
       index: 1,
       stack: 1,
-      // linkOpacity: 0.5, if no active group, enable this .5.
+      linkOpacity: 0.1,
       visible: true, // always to true. the enableMouseTracking will determine if its "active".
       enableMouseTracking: false, // defaults to true. if no active group, set to true.
       dataLabels: {
-        enabled: false,
+        enabled: true,
       },
-      animation: false,
       data: [
         ['Ninth Grade', 'Completed High School', 84.14, 'lightgray'],
         ['Ninth Grade', 'Did Not Complete High School', 15.86, 'lightgray'],
@@ -174,12 +178,6 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       name: 'Group 1',
       id: 'one',
       keys: ['from', 'to', 'weight'],
-      index: 99,
-      stack: 2,
-      linkOpacity: 0.5, // defaults to 0.1. the active group needs to be set to 0.5
-      visible: false, // defaults to false. the active group needs to be set to true
-      enableMouseTracking: true, // defaults to false. the active group needs to be set to true
-      animation: false,
       data: [
         ['Ninth Grade', 'Completed High School', 54.14],
         ['Ninth Grade', 'Did Not Complete High School', 10.86],
@@ -204,8 +202,6 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       name: 'Group 2',
       id: 'two',
       keys: ['from', 'to', 'weight'],
-      index: 99,
-      stack: 3,
       data: [
         ['Ninth Grade', 'Completed High School', 23.24],
         ['Ninth Grade', 'Did Not Complete High School', 16.76],
@@ -230,8 +226,6 @@ let sankeyChart = Highcharts.chart('sankey-chart', {
       name: 'Group 3',
       id: 'three',
       keys: ['from', 'to', 'weight'],
-      index: 99,
-      stack: 4,
       data: [
         ['Ninth Grade', 'Completed High School', 23.24],
         ['Ninth Grade', 'Did Not Complete High School', 16.76],
